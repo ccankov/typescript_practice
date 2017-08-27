@@ -71,6 +71,10 @@ function LogBookTitles(titles) {
         console.log(title);
     }
 }
+function GetBookById(id) {
+    var allBooks = GetAllBooks();
+    return allBooks.filter(function (book) { return book.id === id; })[0];
+}
 //****************************//
 var fictionBooks = GetBookTitlesByCategory(Category.Fiction);
 fictionBooks.forEach(function (val, idx, arr) { return console.log(++idx + ' - ' + val); });

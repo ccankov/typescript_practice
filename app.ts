@@ -80,9 +80,12 @@ function LogBookTitles(titles: string[]): void {
   }
 }
 
-
+function GetBookById(id: number) {
+  const allBooks = GetAllBooks();
+  return allBooks.filter(book => book.id === id)[0];
+}
 
 //****************************//
 
 const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
-fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val));
+fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val)) ;
