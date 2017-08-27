@@ -79,7 +79,11 @@ function CreateCustomerId(name, id) {
     return name + id;
 }
 //****************************//
-var myID = CreateCustomerId('daniel', 10);
+var x;
+x = 5;
+var IdGenerator;
+IdGenerator = CreateCustomerId;
+var myID = IdGenerator('daniel', 10);
 console.log(myID);
 var fictionBooks = GetBookTitlesByCategory(Category.Fiction);
 fictionBooks.forEach(function (val, idx, arr) { return console.log(++idx + ' - ' + val); });

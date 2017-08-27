@@ -91,7 +91,13 @@ function CreateCustomerId(name: string, id: number): string {
 
 //****************************//
 
-let myID: string = CreateCustomerId('daniel', 10);
+let x: number;
+x = 5;
+
+let IdGenerator: (chars: string, nums: number) => string;
+IdGenerator = CreateCustomerId;
+
+let myID: string = IdGenerator('daniel', 10);
 console.log(myID);
 
 const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
