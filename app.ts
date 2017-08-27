@@ -1,29 +1,47 @@
+interface IBook {
+  id: number,
+  title: string,
+  author: string,
+  available: boolean,
+  category: Category
+}
+
 function GetAllBooks() {
   let books = [
     { 
+      id: 1,
       title: 'Ulysses', 
       author: 'James Joyce', 
-      available: true },
+      available: true,
+      category: Category.Fiction
+    },
     { 
+      id: 2,
       title: 'A Farewell to Arms', 
       author: 'Ernest Hemingway', 
-      available: false },
+      available: false,
+      category: Category.Fiction
+    },
     { 
+      id: 3,
       title: 'I Know Why the Caged Bird Sings', 
       author: 'Maya Angelou', 
-      available: true 
+      available: true,
+      category: Category.Poetry
     },
     {
+      id: 4,
       title: 'Moby Dick', 
       author: 'Herman Melville', 
-      available: true
+      available: true,
+      category: Category.Fiction
     }
   ];
 
   return books;
 }
 
-function LogFirstAvailable(books: any[]): void {
+function LogFirstAvailable(books: IBook[]): void {
   let numberOfBooks: number = books.length;
   let firstAvailable: string = '';
 
@@ -38,5 +56,33 @@ function LogFirstAvailable(books: any[]): void {
   console.log('First Available: ' + firstAvailable);
 }
 
-const allBooks = GetAllBooks();
-LogFirstAvailable(allBooks);
+enum Category { Biography, Poetry, Fiction, History, Children }
+
+function GetBookTitlesByCategory(categoryFilter: Category): Array<string> {
+
+  console.log('Getting books in category: ' + Category[categoryFilter]);
+
+  const allBooks = GetAllBooks();
+  const filteredTitles: string[] = [];
+  
+  for(let currentBook of allBooks) {
+    if(currentBook.category === categoryFilter) {
+      filteredTitles.push(currentBook.title);
+    }
+  }
+
+  return filteredTitles;
+}
+
+function LogBookTitles(titles: string[]): void {
+  for(let title of titles) {
+    console.log(title);
+  }
+}
+
+
+
+//****************************//
+
+const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
+fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val));
