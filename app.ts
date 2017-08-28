@@ -143,6 +143,9 @@ function PrintBook(book: Book): void {
 
 //****************************//
 
+let refBook = new Encyclopedia('WorldPedia', 1900, 10);
+refBook.printItem();
+
 // let favoriteLibrarian: Librarian = new UniversityLibrarian();
 // favoriteLibrarian.name = 'Sharon';
 // favoriteLibrarian.assistCustomer('Lynda');

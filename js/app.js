@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
+var classes_1 = require("./classes");
 function GetAllBooks() {
     var books = [
         {
@@ -126,6 +127,8 @@ function PrintBook(book) {
     console.log(book.title + ' by ' + book.author);
 }
 //****************************//
+var refBook = new classes_1.Encyclopedia('WorldPedia', 1900, 10);
+refBook.printItem();
 // let favoriteLibrarian: Librarian = new UniversityLibrarian();
 // favoriteLibrarian.name = 'Sharon';
 // favoriteLibrarian.assistCustomer('Lynda');

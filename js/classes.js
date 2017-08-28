@@ -45,9 +45,15 @@ var ReferenceItem = (function () {
 exports.ReferenceItem = ReferenceItem;
 var Encyclopedia = (function (_super) {
     __extends(Encyclopedia, _super);
-    function Encyclopedia() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Encyclopedia(newTitle, newYear, edition) {
+        var _this = _super.call(this, newTitle, newYear) || this;
+        _this.edition = edition;
+        return _this;
     }
+    Encyclopedia.prototype.printItem = function () {
+        _super.prototype.printItem.call(this);
+        console.log("Edition: " + this.edition + " (" + this.year + ")");
+    };
     return Encyclopedia;
 }(ReferenceItem));
 exports.Encyclopedia = Encyclopedia;
