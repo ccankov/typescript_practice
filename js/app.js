@@ -128,7 +128,7 @@ function PrintBook(book) {
 }
 //****************************//
 var refBook = new classes_1.Encyclopedia('WorldPedia', 1900, 10);
-refBook.printItem();
+refBook.printCitation();
 // let favoriteLibrarian: Librarian = new UniversityLibrarian();
 // favoriteLibrarian.name = 'Sharon';
 // favoriteLibrarian.assistCustomer('Lynda');
