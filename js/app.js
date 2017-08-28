@@ -33,6 +33,7 @@ function GetAllBooks() {
     return books;
 }
 function LogFirstAvailable(books) {
+    if (books === void 0) { books = GetAllBooks(); }
     var numberOfBooks = books.length;
     var firstAvailable = '';
     for (var _i = 0, books_1 = books; _i < books_1.length; _i++) {
@@ -54,6 +55,7 @@ var Category;
     Category[Category["Children"] = 4] = "Children";
 })(Category || (Category = {}));
 function GetBookTitlesByCategory(categoryFilter) {
+    if (categoryFilter === void 0) { categoryFilter = Category.Fiction; }
     console.log('Getting books in category: ' + Category[categoryFilter]);
     var allBooks = GetAllBooks();
     var filteredTitles = [];
@@ -78,13 +80,44 @@ function GetBookById(id) {
 function CreateCustomerId(name, id) {
     return name + id;
 }
+function CreateCustomer(name, age, city) {
+    console.log('Creating customer ' + name);
+    if (age) {
+        console.log('Age: ' + age);
+    }
+    if (city) {
+        console.log('City: ' + city);
+    }
+}
+function CheckoutBooks(customer) {
+    var bookIDs = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        bookIDs[_i - 1] = arguments[_i];
+    }
+    console.log('Checking out books for ' + customer);
+    var booksCheckedOut = [];
+    for (var _a = 0, bookIDs_1 = bookIDs; _a < bookIDs_1.length; _a++) {
+        var id = bookIDs_1[_a];
+        var book = GetBookById(id);
+        if (book.available) {
+            booksCheckedOut.push(book.title);
+        }
+    }
+    return booksCheckedOut;
+}
 //****************************//
-var x;
-x = 5;
-var IdGenerator;
-IdGenerator = CreateCustomerId;
-var myID = IdGenerator('daniel', 10);
-console.log(myID);
-var fictionBooks = GetBookTitlesByCategory(Category.Fiction);
-fictionBooks.forEach(function (val, idx, arr) { return console.log(++idx + ' - ' + val); });
+LogFirstAvailable();
+// let fictionBooks = GetBookTitlesByCategory();
+// LogBookTitles(fictionBooks);
+//CreateCustomer('Michelle');
+// CreateCustomer('Leigh', 6);
+// CreateCustomer('Marie', 12, 'Atlanta');$
+// let x: number;
+// x = 5;
+// let IdGenerator: (chars: string, nums: number) => string;
+// IdGenerator = CreateCustomerId;
+// let myID: string = IdGenerator('daniel', 10);
+// console.log(myID);
+// const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
+// fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val)) ; 
 //# sourceMappingURL=app.js.map
