@@ -126,6 +126,13 @@ function PrintBook(book) {
     console.log(book.title + ' by ' + book.author);
 }
 //****************************//
+// let favoriteLibrarian: Librarian = new UniversityLibrarian();
+// favoriteLibrarian.name = 'Sharon';
+// favoriteLibrarian.assistCustomer('Lynda');
+// let ref: ReferenceItem = new ReferenceItem('Updated Facts and Figures', 2012);
+// ref.printItem();
+// ref.publisher = 'Random Data Publishing';
+// console.log(ref.publisher);
 // let myBook: Book = {
 //   id: 5,
 //   title: 'Pride and Prejudice',
