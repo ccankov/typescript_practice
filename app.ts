@@ -199,9 +199,10 @@ magazines.forEach(mag => magazineShelf.add(mag));
 
 let firstMagazine: Magazine = magazineShelf.getFirst();
 
-let numberShelf: Shelf<number> = new Shelf<number>();
+magazineShelf.printTitles();
 
-[5, 10, 15, 20].forEach(num => numberShelf.add(num));
+let softwareBook = bookShelf.find('Code Complete');
+console.log(`${softwareBook.title} (${softwareBook.author})`);
 
 // let purgedBooks: Array<Book> = Purge(inventory);
 // purgedBooks.forEach(book => console.log(book.title)); 

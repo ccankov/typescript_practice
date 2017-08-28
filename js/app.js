@@ -168,8 +168,9 @@ var magazines = [
 var magazineShelf = new shelf_1.default();
 magazines.forEach(function (mag) { return magazineShelf.add(mag); });
 var firstMagazine = magazineShelf.getFirst();
-var numberShelf = new shelf_1.default();
-[5, 10, 15, 20].forEach(function (num) { return numberShelf.add(num); });
+magazineShelf.printTitles();
+var softwareBook = bookShelf.find('Code Complete');
+console.log(softwareBook.title + " (" + softwareBook.author + ")");
 // let purgedBooks: Array<Book> = Purge(inventory);
 // purgedBooks.forEach(book => console.log(book.title)); 
 // let purgedNums: Array<number> = Purge([1,2,3,4]);
