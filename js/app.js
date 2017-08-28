@@ -126,17 +126,20 @@ function PrintBook(book) {
     console.log(book.title + ' by ' + book.author);
 }
 //****************************//
-var myBook = {
-    id: 5,
-    title: 'Pride and Prejudice',
-    author: 'Jane Austen',
-    available: true,
-    category: enums_1.Category.Fiction,
-    pages: 250,
-    markDamaged: function (reason) { return console.log('Damaged: ' + reason); }
-};
-PrintBook(myBook);
-// myBook.markDamaged('missing back cover');
+// let myBook: Book = {
+//   id: 5,
+//   title: 'Pride and Prejudice',
+//   author: 'Jane Austen',
+//   available: true,
+//   category: Category.Fiction,
+//   pages: 250,
+//   markDamaged: (reason: string) => console.log('Damaged: ' + reason)
+// }
+// let logDamage: DamageLogger;
+// logDamage = (damage: string) => console.log('Damage reported: ' + damage);
+// logDamage('coffee stains');
+// PrintBook(myBook);
+// myBook.markDamaged('torn cover');
 // let checkedOutBooks = GetTitles(false);
 // checkedOutBooks.forEach(title => console.log(title));
 // let myBooks: string[] = CheckoutBooks('Thorne', 1, 3, 4);
