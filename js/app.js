@@ -122,9 +122,23 @@ function GetTitles(bookProperty) {
     }
     return foundTitles;
 }
+function PrintBook(book) {
+    console.log(book.title + ' by ' + book.author);
+}
 //****************************//
-var checkedOutBooks = GetTitles(false);
-checkedOutBooks.forEach(function (title) { return console.log(title); });
+var myBook = {
+    id: 5,
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
+    available: true,
+    category: enums_1.Category.Fiction,
+    pages: 250,
+    markDamaged: function (reason) { return console.log('Damaged: ' + reason); }
+};
+PrintBook(myBook);
+// myBook.markDamaged('missing back cover');
+// let checkedOutBooks = GetTitles(false);
+// checkedOutBooks.forEach(title => console.log(title));
 // let myBooks: string[] = CheckoutBooks('Thorne', 1, 3, 4);
 // myBooks.forEach(title => console.log(title));
 // LogFirstAvailable();

@@ -136,10 +136,27 @@ function GetTitles(bookProperty: any): string[] {
   return foundTitles;
 }
 
+function PrintBook(book: Book): void {
+  console.log(book.title + ' by ' + book.author);
+}
+
 //****************************//
 
-let checkedOutBooks = GetTitles(false);
-checkedOutBooks.forEach(title => console.log(title));
+let myBook: Book = {
+  id: 5,
+  title: 'Pride and Prejudice',
+  author: 'Jane Austen',
+  available: true,
+  category: Category.Fiction,
+  pages: 250,
+  markDamaged: (reason: string) => console.log('Damaged: ' + reason)
+}
+
+PrintBook(myBook);
+// myBook.markDamaged('missing back cover');
+
+// let checkedOutBooks = GetTitles(false);
+// checkedOutBooks.forEach(title => console.log(title));
 
 // let myBooks: string[] = CheckoutBooks('Thorne', 1, 3, 4);
 // myBooks.forEach(title => console.log(title));
