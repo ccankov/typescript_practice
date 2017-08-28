@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
-var utilityFunctions_1 = require("./lib/utilityFunctions");
+var shelf_1 = require("./shelf");
 function GetAllBooks() {
     var books = [
         {
@@ -157,10 +157,23 @@ var inventory = [
         category: enums_1.Category.Software
     }
 ];
-var purgedBooks = utilityFunctions_1.Purge(inventory);
-purgedBooks.forEach(function (book) { return console.log(book.title); });
-var purgedNums = utilityFunctions_1.Purge([1, 2, 3, 4]);
-console.log(purgedNums);
+var bookShelf = new shelf_1.default();
+inventory.forEach(function (book) { return bookShelf.add(book); });
+var firstBook = bookShelf.getFirst();
+var magazines = [
+    { title: 'Programming Language Monthly', publisher: 'Code Mags' },
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+    { title: 'Five Points', publisher: 'GSU' }
+];
+var magazineShelf = new shelf_1.default();
+magazines.forEach(function (mag) { return magazineShelf.add(mag); });
+var firstMagazine = magazineShelf.getFirst();
+var numberShelf = new shelf_1.default();
+[5, 10, 15, 20].forEach(function (num) { return numberShelf.add(num); });
+// let purgedBooks: Array<Book> = Purge(inventory);
+// purgedBooks.forEach(book => console.log(book.title)); 
+// let purgedNums: Array<number> = Purge([1,2,3,4]);
+// console.log(purgedNums);
 // let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
 // refBook.printCitation();
 // let Newspaper = class extends ReferenceItem {
