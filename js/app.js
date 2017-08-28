@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
+var classes_1 = require("./classes");
 var util = require("./lib/utilityFunctions");
 function PrintBookInfo(_a) {
     var booktitle = _a.title, bookauthor = _a.author;
@@ -52,5 +53,14 @@ var authors = ['Tolstoy', 'Fitzgerald'].concat(poets);
 //   0: K;
 //   1: V;
 // }
-// let catalogLocation: KeyValuePair<string, Book> = ['A 123.456', book1]; 
+// let catalogLocation: KeyValuePair<string, Book> = ['A 123.456', book1];
+function applyMixins(derivedCtor, baseCtors) {
+    baseCtors.forEach(function (baseCtor) {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach(function (name) {
+            derivedCtor.prototype[name] = baseCtor.prototype[name];
+        });
+    });
+}
+applyMixins(classes_1.UniversityLibrarian, [classes_1.Employee, classes_1.Researcher]);
+var newLibrarian = new classes_1.UniversityLibrarian();
 //# sourceMappingURL=app.js.map

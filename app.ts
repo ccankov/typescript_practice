@@ -1,6 +1,6 @@
 import { Category } from './enums';
 import { Book, Logger, Author, Librarian, Magazine } from './interfaces';
-import { UniversityLibrarian, ReferenceItem } from './classes';
+import { UniversityLibrarian, ReferenceItem, Employee, Researcher } from './classes';
 import * as util from './lib/utilityFunctions';
 
 function PrintBookInfo({ title: booktitle, author: bookauthor }: Book): void {
@@ -64,3 +64,19 @@ let authors: string[] = ['Tolstoy', 'Fitzgerald', ...poets];
 // }
 
 // let catalogLocation: KeyValuePair<string, Book> = ['A 123.456', book1];
+
+function applyMixins(derivedCtor: any, baseCtors: any[]) {
+  baseCtors.forEach(baseCtor => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+      derivedCtor.prototype[name] = baseCtor.prototype[name];
+    });
+  });
+}
+
+applyMixins(UniversityLibrarian, [Employee, Researcher]);
+
+let newLibrarian = new UniversityLibrarian();
+// newLibrarian.doResearch('Economics');
+
+// let frequency: 'monthly' | 'anually' = 'anually';
+type Frequency = 'monly' | 'anually';
