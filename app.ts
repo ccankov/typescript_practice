@@ -118,7 +118,10 @@ function CheckoutBooks(customer: string, ...bookIDs: number[]): string[] {
 
 //****************************//
 
-LogFirstAvailable();
+let myBooks: string[] = CheckoutBooks('Thorne', 1, 3, 4);
+myBooks.forEach(title => console.log(title));
+
+// LogFirstAvailable();
 
 // let fictionBooks = GetBookTitlesByCategory();
 // LogBookTitles(fictionBooks);

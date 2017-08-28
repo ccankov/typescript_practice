@@ -106,7 +106,9 @@ function CheckoutBooks(customer) {
     return booksCheckedOut;
 }
 //****************************//
-LogFirstAvailable();
+var myBooks = CheckoutBooks('Thorne', 1, 3, 4);
+myBooks.forEach(function (title) { return console.log(title); });
+// LogFirstAvailable();
 // let fictionBooks = GetBookTitlesByCategory();
 // LogBookTitles(fictionBooks);
 //CreateCustomer('Michelle');
