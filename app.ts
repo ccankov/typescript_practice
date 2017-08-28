@@ -1,12 +1,7 @@
-interface IBook {
-  id: number,
-  title: string,
-  author: string,
-  available: boolean,
-  category: Category
-}
+import { Category } from './enums';
+import { Book } from './interfaces';
 
-function GetAllBooks() {
+function GetAllBooks(): Book[] {
   let books = [
     { 
       id: 1,
@@ -41,7 +36,7 @@ function GetAllBooks() {
   return books;
 }
 
-function LogFirstAvailable(books: IBook[] = GetAllBooks()): void {
+function LogFirstAvailable(books: Book[] = GetAllBooks()): void {
   let numberOfBooks: number = books.length;
   let firstAvailable: string = '';
 
@@ -55,8 +50,6 @@ function LogFirstAvailable(books: IBook[] = GetAllBooks()): void {
   console.log('Total books: ' + numberOfBooks);
   console.log('First Available: ' + firstAvailable);
 }
-
-enum Category { Biography, Poetry, Fiction, History, Children }
 
 function GetBookTitlesByCategory(categoryFilter: Category = Category.Fiction): Array<string> {
 
@@ -80,7 +73,7 @@ function LogBookTitles(titles: string[]): void {
   }
 }
 
-function GetBookById(id: number) {
+function GetBookById(id: number): Book {
   const allBooks = GetAllBooks();
   return allBooks.filter(book => book.id === id)[0];
 }
